@@ -6,6 +6,8 @@ let result = 0;
 let operatorClicked = false;
 
 function main() {
+    //adds all the even listeners to each button
+    
     const digitButtons = Array.from(document.getElementsByClassName('digit'));
     digitButtons.forEach(function(item) {
         // console.log(button.id);
@@ -26,12 +28,16 @@ function main() {
 }
 
 function updateDisplay(item) {
+    
+    //will change the display depending on conditions
     const displayText = document.getElementById('display-text');
     // console.log(this.id)
+    //display is wiped before adding new content
     if (operatorClicked === true) {
         clearDisplay();
         display = '';
     }
+    //resets all information if equal sign was pressed prior to a button
     if (currentOperator === '=') {
         clearEverything();
     }
@@ -46,6 +52,7 @@ function addResultToDisplay(num) {
 }
 
 function clearDisplay() {
+    //only clears display without clearing currNumbers array
     const displayText = document.getElementById('display-text');
     displayText.textContent = '';
     display = '';
@@ -53,6 +60,7 @@ function clearDisplay() {
 }
 
 function clearEverything() {
+    //wipes all information including currNumbers
     const displayText = document.getElementById('display-text');
     displayText.textContent = '';
     display = '';
@@ -60,17 +68,25 @@ function clearEverything() {
     currNumbers = [];
 }
 
+//each function first checks whether an "=" was pressed first
+//this is to ensure that code doesn't break and perform weird
+//pressing an operator directly after "=" will simply do nothing
+
 function plusButton(item) {
     if (currentOperator === '=') {
         currentOperator = '+';
         return;
     }
+    //if no numbers are stored
+    //stores the first set of numbers
     else if (currNumbers.length === 0) {
         currNumbers.push(Number(display));
         currentOperator = '+';
         operatorClicked = true;
         display = '';
     }
+    //if a set of numbers already stored
+    //performs operation based on that and current display
     else if (currNumbers.length === 1) {
         // currentOperator = '+';
         currNumbers.push(Number(display));
@@ -120,6 +136,8 @@ function multiplyButton(item) {
     else if (currNumbers.length === 1) {
         currNumbers.push(Number(display));
         result = operate(currNumbers, currentOperator);
+        //for multiplying and dividing
+        //rounds number if necessary
         if (!Number.isInteger(result)) {
             result = Number.parseFloat(result).toFixed(2);
         }
