@@ -3,6 +3,7 @@ body {
     justify-content: center;
     align-items: center;
     background-color: rgb(212, 243, 253);
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .calculator {
@@ -23,10 +24,18 @@ body {
     display: flex;
     justify-content: end;
     align-items: center;
-    background-color: black;
+    background-color: rgb(105, 103, 103);
     color: white;
-    height: 50px;
+    height: 75px;
     width: 300px;
+    margin-top: 15px;
+    border: 2px solid black;
+}
+
+#display-text {
+    font-size: 36px;
+    font-weight: bold;
+    margin-right: 20px;
 }
 
 .row1, .row2, .row3, .row4 {
@@ -36,6 +45,54 @@ body {
 }
 
 button {
-    width: 50px;
-    height: 50px;
+    width: 58px;
+    height: 58px;
+    border-radius: 10%;
+    border: none;
+    background-color: rgb(245, 180, 82);
+    font-size: 24px;
+}
+
+button:hover {
+    background-color: rgb(231, 154, 38);
+}
+
+button:active {
+    background-color: rgb(224, 141, 15);
+}
+
+.digit {
+    background-color: rgb(185, 224, 211);
+}
+
+.digit:hover {
+    background-color: rgb(121, 214, 180);
+}
+
+.digit:active {
+    background-color: rgb(92, 194, 160);
+}
+
+.equal {
+    background-color: rgb(108, 191, 247);
+}
+
+.equal:hover {
+    background-color: rgb(48, 163, 240);
+}
+
+.equal:active {
+    background-color: rgb(17, 151, 240);
+}
+
+#clear {
+    background-color: rgb(241, 150, 226);
+}
+
+#clear:hover {
+    background-color: rgb(236, 116, 216);
+}
+
+#clear:active {
+    background-color: rgb(240, 81, 213);
 }
